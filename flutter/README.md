@@ -9,3 +9,11 @@
 ```sh
 $ sh /usr/local/android-studio/bin/studio.sh
 ```
+
+## Create
+
+Create a project command line flutter
+
+```sh
+$ flutter create hello_rectangle
+```
