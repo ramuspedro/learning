@@ -40,3 +40,18 @@ $ systemctl status kubelet.service
 
 $ systemctl status docker.service
 ```
+
+## Running kubectl
+
+- First run minikube (if you run kubernetes on minikube)
+
+```sh
+$ minikube start
+```
+
+## Commands
+
+```sh
+# delete all pods of ns
+$ kubectl -n my-ns delete pod,svc --all
+```
