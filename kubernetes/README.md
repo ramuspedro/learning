@@ -53,5 +53,35 @@ $ minikube start
 
 ```sh
 # delete all pods of ns
-$ kubectl -n my-ns delete pod,svc --all
+$ kubectl delete --all pods --namespace=kube-system
 ```
+
+- If you have deployment
+
+```sh
+# change ns
+
+$ kubectl config set-context --current --namespace=ns
+
+$ kubectl delete ns kube-system
+
+$ kubectl get deployment --all-namespaces
+
+$ kubectl delete deploy name-deployment -n ns
+```
+
+## Problems
+
+### The connection to the server
+
+- https://discuss.kubernetes.io/t/the-connection-to-the-server-host-6443-was-refused-did-you-specify-the-right-host-or-port/552/5
+
+```sh
+$ kubectl get nodes
+# The connection to the server 10.0.2.15:6443 was refused - did you specify the right host or port?
+```
+
+1. sudo -i
+2. swapoff -a
+3. exit
+4. strace -eopenat kubectl version
