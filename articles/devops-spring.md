@@ -43,7 +43,7 @@ $ curl -sSL https://get.docker.com/ | sh
 
 ## Jenkins
 
-Run Jenkins with docker
+### Run Jenkins with docker
 
 ```sh
 $ docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock jenkins/jenkins:lts
@@ -52,3 +52,13 @@ $ docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v jenkins:/var/jenkin
 If it's not configured. Going with default configuration is OK.
 
 Jenkins will be available on http://localhost:8080/. In this case Jenkins is running on the same port of spring service, so e careful.
+
+### Run Jenkins with local Dockerfile
+
+```sh
+# create image
+$ docker build -t ramuspedro/jenkins-with-docker .
+
+# run image
+$ docker run --name myjenkins -p 8080:8080 -p 50000:50000 -v jenkins:/var/jenkins_home -v /var/run/docker.sock:/var/run/docker.sock ramuspedro/jenkins-with-docker
+```
